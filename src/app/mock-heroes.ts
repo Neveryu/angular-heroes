@@ -1,4 +1,7 @@
-import { Hero } from './hero';
+export interface Hero {
+  id: number;
+  name: string;
+}
 
 export const HEROES: Hero[] = [
   { id: 12, name: '影魔' },
@@ -9,5 +12,5 @@ export const HEROES: Hero[] = [
   { id: 17, name: '巴拉森' },
   { id: 18, name: '撼地神牛' },
   { id: 19, name: '骷髅王' },
-  { id: 20, name: '拍拍熊' }
+  { id: 20, name: '拍拍熊' },
 ];

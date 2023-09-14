@@ -1,16 +1,19 @@
 <h2>My Heroes</h2>
-<ul class="heroes">
-	<li *ngFor="let hero of heroes">
-		<a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span>
-			<span class="name">{{hero.name}}</span>
-    </a>
-		<button type="button" class="delete" title="delete hero" (click)="delete(hero)">x</button>
-	</li>
-</ul>
+<span class="loading" *ngIf="isLoading; else hasdata">loading...</span>
+<ng-template #hasdata>
+	<ul class="heroes">
+		<li *ngFor="let hero of heroes">
+			<a routerLink="/detail/{{hero.id}}">
+				<span class="badge">{{hero.id}}</span>
+				<span class="name">{{hero.name}}</span>
+			</a>
+			<button type="button" class="delete" title="delete hero" (click)="delete(hero)">x</button>
+		</li>
+	</ul>
+</ng-template>
 
-<div>
-	<label for="new-hero">Hero name:</label>
+<div style="text-align: center;">
+	<label for="new-hero">Hero name：</label>
 	<input type="text" id="new-hero" #heroName />
 
 	<button type="button" class="add-button" (click)="add(heroName.value);heroName.value=''">
